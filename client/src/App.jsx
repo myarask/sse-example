@@ -49,7 +49,7 @@ const App = () => {
 
     eventSource.addEventListener("closedConnection", () => {
       eventSource.close();
-      alert("closed");
+      alert("Connection Closed");
     });
   }, []);
 

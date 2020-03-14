@@ -65,6 +65,7 @@ function sendEvents(response, eventHistory) {
     if (response.finished) return;
 
     const eventString = "id: 4\nevent: closedConnection\ndata: \n\n";
+    response.write(eventString);
     eventHistory.push(eventString);
   }, 12000);
 }
