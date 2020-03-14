@@ -41,7 +41,7 @@ function sendEvents(response, eventHistory) {
       'id: 1\nevent: flightStateUpdate\ndata: {"flight": "I768", "state": "landing"}\n\n';
     response.write(eventString);
     eventHistory.push(eventString);
-  }, 3000);
+  }, 2000);
 
   setTimeout(() => {
     if (response.finished) return;
@@ -50,7 +50,7 @@ function sendEvents(response, eventHistory) {
       'id: 2\nevent: flightStateUpdate\ndata: {"flight": "I768", "state": "landed"}\n\n';
     response.write(eventString);
     eventHistory.push(eventString);
-  }, 6000);
+  }, 4000);
 
   setTimeout(() => {
     if (response.finished) return;
@@ -59,7 +59,7 @@ function sendEvents(response, eventHistory) {
       'id: 3\nevent: flightRemoval\ndata: {"flight": "I768"}\n\n';
     response.write(eventString);
     eventHistory.push(eventString);
-  }, 9000);
+  }, 6000);
 
   setTimeout(() => {
     if (response.finished) return;
@@ -67,7 +67,7 @@ function sendEvents(response, eventHistory) {
     const eventString = "id: 4\nevent: closedConnection\ndata: \n\n";
     response.write(eventString);
     eventHistory.push(eventString);
-  }, 12000);
+  }, 8000);
 }
 
 function checkConnectionToRestore(request, response, eventHistory) {
