@@ -7,10 +7,10 @@ http
     const eventHistory = [];
 
     request.on("close", () => {
-      if (!response.finished) {
-        response.end();
-        console.log("Stopped sending events.");
-      }
+      if (response.finished) return;
+
+      response.end();
+      console.log("Stopped sending events.");
     });
 
     if (request.url.toLowerCase() === "/events") {
@@ -35,37 +35,37 @@ http
 
 function sendEvents(response, eventHistory) {
   setTimeout(() => {
-    if (!response.finished) {
-      const eventString =
-        'id: 1\nevent: flightStateUpdate\ndata: {"flight": "I768", "state": "landing"}\n\n';
-      response.write(eventString);
-      eventHistory.push(eventString);
-    }
+    if (response.finished) return;
+
+    const eventString =
+      'id: 1\nevent: flightStateUpdate\ndata: {"flight": "I768", "state": "landing"}\n\n';
+    response.write(eventString);
+    eventHistory.push(eventString);
   }, 3000);
 
   setTimeout(() => {
-    if (!response.finished) {
-      const eventString =
-        'id: 2\nevent: flightStateUpdate\ndata: {"flight": "I768", "state": "landed"}\n\n';
-      response.write(eventString);
-      eventHistory.push(eventString);
-    }
+    if (response.finished) return;
+
+    const eventString =
+      'id: 2\nevent: flightStateUpdate\ndata: {"flight": "I768", "state": "landed"}\n\n';
+    response.write(eventString);
+    eventHistory.push(eventString);
   }, 6000);
 
   setTimeout(() => {
-    if (!response.finished) {
-      const eventString =
-        'id: 3\nevent: flightRemoval\ndata: {"flight": "I768"}\n\n';
-      response.write(eventString);
-      eventHistory.push(eventString);
-    }
+    if (response.finished) return;
+
+    const eventString =
+      'id: 3\nevent: flightRemoval\ndata: {"flight": "I768"}\n\n';
+    response.write(eventString);
+    eventHistory.push(eventString);
   }, 9000);
 
   setTimeout(() => {
-    if (!response.finished) {
-      const eventString = "id: 4\nevent: closedConnection\ndata: \n\n";
-      eventHistory.push(eventString);
-    }
+    if (response.finished) return;
+
+    const eventString = "id: 4\nevent: closedConnection\ndata: \n\n";
+    eventHistory.push(eventString);
   }, 12000);
 }
 
