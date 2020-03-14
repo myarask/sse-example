@@ -1,0 +1,20 @@
+{
+  "name": "sse-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "cd client && npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/myarask/sse-example.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/myarask/sse-example/issues"
+  },
+  "homepage": "https://github.com/myarask/sse-example#readme"
+}
